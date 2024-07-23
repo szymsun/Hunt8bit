@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5pjpqcalma5j"]
+[gd_scene load_steps=5 format=3 uid="uid://c5pjpqcalma5j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc1w8"]
+[ext_resource type="Script" path="res://Assets/Scripts/bullet.gd" id="1_1gljt"]
+[ext_resource type="Texture2D" uid="uid://djwc0yvjq65rb" path="res://Assets/Sprites/SpriteSheet2.png" id="1_yt81f"]
 
-[node name="Bullet" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0atj"]
+size = Vector2(2, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m31jc"]
+atlas = ExtResource("1_yt81f")
+region = Rect2(0, 0, 8, 8)
+
+[node name="bullet" type="RigidBody2D"]
+script = ExtResource("1_1gljt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_uc1w8")
+shape = SubResource("RectangleShape2D_d0atj")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = SubResource("AtlasTexture_m31jc")

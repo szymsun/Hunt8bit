@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b16a46ywnqwj0"]
+[gd_scene load_steps=8 format=3 uid="uid://b16a46ywnqwj0"]
 
 [ext_resource type="SpriteFrames" uid="uid://cd5auexw3hv2r" path="res://Assets/Sprites/HunterAnimation.tres" id="1_6x8lf"]
 [ext_resource type="Script" path="res://Assets/Scripts/hunter_move.gd" id="1_vusjb"]
 [ext_resource type="Script" path="res://Assets/Scripts/Shoot.gd" id="3_4hng3"]
 [ext_resource type="AudioStream" uid="uid://dst2bkyabs4bo" path="res://Assets/audio/laserShoot.wav" id="4_3acgf"]
 [ext_resource type="AudioStream" uid="uid://cwg6loptk8wl1" path="res://Assets/audio/powerUp.wav" id="5_iyl10"]
+[ext_resource type="PackedScene" uid="uid://chkwbsuj7rehg" path="res://Assets/Playables/camera_2d.tscn" id="6_adyek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vckl"]
 size = Vector2(8, 8)
@@ -35,3 +36,8 @@ stream = ExtResource("5_iyl10")
 
 [node name="ShootAudio3" type="AudioStreamPlayer2D" parent="BulletOrgin"]
 stream = ExtResource("4_3acgf")
+
+[node name="Camera2D" parent="." instance=ExtResource("6_adyek")]
+zoom = Vector2(5, 5)
+limit_left = 340
+limit_bottom = 420

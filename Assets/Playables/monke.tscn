@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b78vbrs77lsqq"]
+[gd_scene load_steps=10 format=3 uid="uid://b78vbrs77lsqq"]
 
+[ext_resource type="Script" path="res://Assets/Scripts/monke.gd" id="1_gplj7"]
 [ext_resource type="Texture2D" uid="uid://cvu7ybcnb0371" path="res://Assets/Sprites/SpriteSheet1.png" id="1_oxbkk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0mr2"]
@@ -59,11 +60,18 @@ animations = [{
 }]
 
 [node name="Monke" type="RigidBody2D"]
+script = ExtResource("1_gplj7")
 
-[node name="NiggerHitbox" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_s0mr2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mrd6e")
 animation = &"RunRight"
 frame_progress = 0.622366
+
+[node name="RightRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(56, 0)
+
+[node name="LeftRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(-56, 0)
