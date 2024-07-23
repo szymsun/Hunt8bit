@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://b16a46ywnqwj0"]
+
+[ext_resource type="SpriteFrames" uid="uid://cd5auexw3hv2r" path="res://Assets/Sprites/HunterAnimation.tres" id="1_6x8lf"]
+[ext_resource type="Script" path="res://Assets/Scripts/hunter_move.gd" id="1_vusjb"]
+[ext_resource type="Script" path="res://Assets/Scripts/Shoot.gd" id="3_4hng3"]
+[ext_resource type="AudioStream" uid="uid://dst2bkyabs4bo" path="res://Assets/audio/laserShoot.wav" id="4_3acgf"]
+[ext_resource type="AudioStream" uid="uid://cwg6loptk8wl1" path="res://Assets/audio/powerUp.wav" id="5_iyl10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vckl"]
+size = Vector2(8, 8)
+
+[node name="Hunter" type="CharacterBody2D"]
+top_level = true
+z_index = 2
+script = ExtResource("1_vusjb")
+
+[node name="HunterHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7vckl")
+
+[node name="HunterSprite" type="AnimatedSprite2D" parent="HunterHitbox"]
+sprite_frames = ExtResource("1_6x8lf")
+animation = &"idle"
+frame_progress = 0.727261
+metadata/HunterState = 0
+
+[node name="BulletOrgin" type="Node2D" parent="."]
+position = Vector2(5, 0)
+script = ExtResource("3_4hng3")
+
+[node name="ShootAudio" type="AudioStreamPlayer2D" parent="BulletOrgin"]
+stream = ExtResource("4_3acgf")
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="BulletOrgin"]
+stream = ExtResource("5_iyl10")
+
+[node name="ShootAudio3" type="AudioStreamPlayer2D" parent="BulletOrgin"]
+stream = ExtResource("4_3acgf")

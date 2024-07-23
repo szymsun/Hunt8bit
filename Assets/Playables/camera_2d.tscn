@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://chkwbsuj7rehg"]
+
+[node name="Camera2D" type="Camera2D"]
+zoom = Vector2(6.66, 6.66)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]

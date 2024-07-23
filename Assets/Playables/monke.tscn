@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://b78vbrs77lsqq"]
+
+[ext_resource type="Texture2D" uid="uid://cvu7ybcnb0371" path="res://Assets/Sprites/SpriteSheet1.png" id="1_oxbkk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0mr2"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqp7b"]
+atlas = ExtResource("1_oxbkk")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy1dl"]
+atlas = ExtResource("1_oxbkk")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go6ja"]
+atlas = ExtResource("1_oxbkk")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5wtk"]
+atlas = ExtResource("1_oxbkk")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy465"]
+atlas = ExtResource("1_oxbkk")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mrd6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqp7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy1dl")
+}],
+"loop": true,
+"name": &"RunLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go6ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5wtk")
+}],
+"loop": true,
+"name": &"RunRight",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy465")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Monke" type="RigidBody2D"]
+
+[node name="NiggerHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s0mr2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mrd6e")
+animation = &"RunRight"
+frame_progress = 0.622366
